@@ -83,6 +83,7 @@ const AddMeal: React.FC<AddMealProps> = ({ open, onOpenChange }) => {
       form.reset()
       onOpenChange(false)
     } catch (error) {
+      console.log(error)
       toast.error('Failed to add meal', {
         description: 'There was an error adding the meal. Please try again.',
       })

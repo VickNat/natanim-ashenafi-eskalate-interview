@@ -3,6 +3,8 @@
 import { useFoodStore } from '@/store/food-store'
 import MealCard from './MealCard'
 import React from 'react'
+import { Button } from '../ui/button'
+import { MoveRightIcon } from 'lucide-react'
 
 const FeaturedMeals = () => {
   const foodItems = useFoodStore((state) => state.foodItems)
@@ -16,7 +18,7 @@ const FeaturedMeals = () => {
             Featured Meals
           </h2>
           <p className="text-gray-600 text-lg">
-            Let's see the trending meals
+            Let&apos;s see the trending meals
           </p>
         </div>
 
@@ -25,6 +27,11 @@ const FeaturedMeals = () => {
           {foodItems.map((food) => (
             <MealCard key={food.id} food={food} />
           ))}
+        </div>
+        <div className='my-8 flex justify-center mt-10'>
+          <Button className='bg-gradient-to-r from-primary to-[#FF9A0E] hover:from-primary/90 hover:to-[#FF9A0E]/90 text-white font-medium'>
+            Load More Meals <MoveRightIcon className='w-4 h-4' />
+          </Button>
         </div>
       </div>
     </section>

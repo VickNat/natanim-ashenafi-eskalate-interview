@@ -6,7 +6,7 @@ import { FoodResponse, FoodItem } from './types'
 export const foodQueryKeys = {
   all: ['food'] as const,
   lists: () => [...foodQueryKeys.all, 'list'] as const,
-  list: (filters?: Record<string, any>) => [...foodQueryKeys.lists(), filters] as const,
+  list: (filters?: Record<string, unknown>) => [...foodQueryKeys.lists(), filters] as const,
   search: (searchTerm?: string) => [...foodQueryKeys.all, 'search', searchTerm] as const,
   details: () => [...foodQueryKeys.all, 'detail'] as const,
   detail: (id: string) => [...foodQueryKeys.details(), id] as const,

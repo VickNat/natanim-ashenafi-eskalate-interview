@@ -100,6 +100,7 @@ const EditMeal: React.FC<EditMealProps> = ({ open, onOpenChange, meal }) => {
       
       onOpenChange(false)
     } catch (error) {
+      console.log(error)
       toast.error('Failed to update meal', {
         description: 'There was an error updating the meal. Please try again.',
       })

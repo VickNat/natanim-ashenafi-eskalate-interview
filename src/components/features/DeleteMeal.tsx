@@ -32,6 +32,7 @@ const DeleteMeal: React.FC<DeleteMealProps> = ({ open, onOpenChange, meal }) => 
       
       onOpenChange(false)
     } catch (error) {
+      console.log(error)
       toast.error('Failed to delete meal', {
         description: 'There was an error deleting the meal. Please try again.',
       })
