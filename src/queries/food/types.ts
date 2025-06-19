@@ -18,14 +18,14 @@ export interface FoodItem {
 
 export type FoodResponse = FoodItem[]
 
-// For mutations and other operations
+// For mutations and other operations - matches screenshot exactly
 export interface CreateFoodData {
+  createdAt: string
   name: string
   avatar: string
   rating: string
-  Price: string
-  open?: boolean
-  logo?: string
+  open: boolean
+  logo: string
 }
 
 export interface UpdateFoodData extends Partial<CreateFoodData> {

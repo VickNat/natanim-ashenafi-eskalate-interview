@@ -1,15 +1,25 @@
 'use client'
 
+import FeaturedMeals from "@/components/features/FeaturedMeals";
+import LandingSection from "@/components/features/LandingSection";
 import { useGetFoodItems } from "@/queries/food";
+import { useFoodStore } from "@/store/food-store";
+import { useEffect } from "react";
 
 export default function Home() {
-  const { data: foodItems, isLoading, error, isError } = useGetFoodItems()
+  const { data: foodItemsData, isLoading, error, isError } = useGetFoodItems()
+  const setFoodItems = useFoodStore((state) => state.setFoodItems)
 
-  console.log("foodItems", foodItems)
+  useEffect(() => {
+    if (foodItemsData) {
+      setFoodItems(foodItemsData)
+    }
+  }, [foodItemsData])
 
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-
+    <div className="min-h-screen">
+      <LandingSection />
+      <FeaturedMeals />
     </div>
   );
 }
